@@ -1,0 +1,1 @@
+Escolha um ponto de intermutação do alvo(Mão esquerda, Boca, pé, etc.), sempre que ele realizar um ataque com este ponto, ele tem -1DR

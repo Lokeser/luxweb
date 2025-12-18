@@ -1,0 +1,1 @@
+Ao consumir 2 Magículas; cria um Miasma Mágico capaz de esconder seu rosto, adiciona sua Aura ao teste de Furtividade, caso alguém com Magic Eye tente olhar seu rosto, é uma disputa de Testes (Furtividade X Percepção Mágica)

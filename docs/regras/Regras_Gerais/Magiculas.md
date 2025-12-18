@@ -1,0 +1,1 @@
+Mana dentro do seu corpo, utiliza para conjurar magias e usar habilidades. Sua quantidade de Magículas é igual a sua Mana, ela aumenta com base no rank
