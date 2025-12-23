@@ -2,50 +2,221 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Núcleos Místicos - Luxsandoria</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    
+    <style>
+        /* ================= BASE E TRANSIÇÃO DE BACKGROUND ================= */
+        body.grimoire-bg {
+            /* Define uma cor base caso a imagem demore a carregar */
+            background-color: #111;
+            /* A transição suave é crucial aqui */
+            transition: background-image 0.6s ease-in-out, background-color 0.6s ease-in-out;
+            background-blend-mode: overlay;
+            min-height: 100vh;
+        }
+
+        /* --- Estados de Hover do Body (Ativados via JS) --- */
+        
+        /* Mana: Azul Profundo e Dourado */
+        body.bg-mana {
+            background-image: linear-gradient(135deg, rgba(0, 20, 40, 0.9), rgba(0, 50, 100, 0.7)), radial-gradient(circle at center, rgba(197, 160, 89, 0.4) 0%, transparent 70%);
+            background-color: #18238a;
+        }
+
+        /* Ki: Branco Espiritual e Vermelho Sangue */
+        body.bg-ki {
+            background-image: linear-gradient(135deg, rgba(220, 220, 220, 0.8), rgba(100, 0, 0, 0.7)), radial-gradient(circle at center, rgba(255, 50, 50, 0.3) 0%, transparent 60%);
+            background-color: #621818;
+        }
+
+        /* Fé: Dourado Celestial e Amarelo Solar */
+        body.bg-fe {
+            background-image: linear-gradient(135deg, rgba(189, 164, 19, 0.7), rgba(255, 140, 0, 0.6)), radial-gradient(circle at center, rgba(255, 255, 200, 0.5) 0%, transparent 70%);
+            background-color: #766914;
+        }
+
+        /* Caos: Roxo Obscuro e Preto Abissal */
+        body.bg-caos {
+            background-image: linear-gradient(135deg, rgba(40, 0, 60, 0.95), rgba(0, 0, 0, 0.9)), radial-gradient(circle at center, rgba(138, 43, 226, 0.4) 0%, transparent 60%);
+            background-color: #7f127fdd;
+        }
+
+
+        /* ================= LAYOUT DE GRID 9:16 ================= */
+        .menu-container-full {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .magic-grid-large {
+            display: grid;
+            /* Cria colunas que tentam ter pelo menos 280px de largura */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        /* ================= ESTILO DOS CARDS VISUAIS ================= */
+        .magic-card-visual {
+            position: relative;
+            display: block;
+            text-decoration: none;
+            border-radius: 15px;
+            overflow: hidden;
+            /* Proporção 9:16 vertical */
+            aspect-ratio: 9 / 16;
+            border: 3px solid transparent; /* Borda invisível por padrão */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* Imagem de Fundo */
+        .magic-bg-img {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.6s ease;
+            z-index: 1;
+        }
+
+        /* Overlay de Texto (Gradiente para leitura) */
+        .magic-content {
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 100%;
+            padding: 40px 20px 30px;
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 10%, rgba(0,0,0,0.6) 50%, transparent 100%);
+            z-index: 2;
+            color: #e0d0b0;
+            text-align: center;
+            transform: translateY(20px); /* Levemente descido */
+            transition: transform 0.4s ease, color 0.4s ease;
+        }
+
+        .magic-content h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            color: #c5a059;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .magic-content p {
+            font-size: 1rem;
+            line-height: 1.4;
+            opacity: 0.9;
+        }
+
+        /* ================= HOVER NOS CARDS (Animação do Card) ================= */
+        .magic-card-visual:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+        }
+        .magic-card-visual:hover .magic-bg-img {
+            transform: scale(1.15); /* Zoom lento na imagem */
+        }
+        .magic-card-visual:hover .magic-content {
+            transform: translateY(0); /* Sobe o texto */
+            color: #fff;
+        }
+
+        /* Cores de Borda Específicas no Hover do Card */
+        .magic-card-visual.mana:hover { border-color: #0088ff; }
+        .magic-card-visual.ki:hover { border-color: #ff3333; }
+        .magic-card-visual.fe:hover { border-color: #ffd700; }
+        .magic-card-visual.caos:hover { border-color: #9d00ff; }
+
+        .p-white {
+            color: #ffffff !important;
+        }
+
+    </style>
 </head>
 <body class="grimoire-bg">
-    <div id="navbar-placeholder"></div>
     
-    <script src="../../../js/menu.js"></script>
+    <div id="navbar-placeholder"></div>
 
-    <header class="menu-header">
-        <h1>Núcleos Místicos</h1>
-        <p>Escolha a fonte primordial do seu poder</p>
+    <header class="menu-header" style="margin-top: 40px;">
+        <p class="p-white">   Escolha a fonte primordial que alimentará sua existência.</p>
     </header>
 
-    <main class="magic-portal-grid">
-        
-        <a href="Mana/mana_menu.html" class="magic-card mana">
-            <div class="card-icon">🌀</div>
-            <h2>Mana</h2>
-            <p>A manipulação dos elementos e das leis naturais através da mente.</p>
-        </a>
+    <main class="menu-container-full">
+        <div class="magic-grid-large">
+            
+            <a href="Mana/mana_menu.html" class="magic-card-visual mana" data-bg="bg-mana">
+                <div class="magic-bg-img" style="background-image: url('../../assets/images/mana.png');"></div>
+                <div class="magic-content">
+                    <h2>Mana</h2>
+                    <p>O tecido da realidade. Manipule os elementos naturais e as leis do mundo através do conhecimento arcano.</p>
+                </div>
+            </a>
 
-        <a href="Ki/ki_menu.html" class="magic-card ki">
-            <div class="card-icon">⚡</div>
-            <h2>Ki</h2>
-            <p>A energia vital interior manifestada em artes marciais e bestiais.</p>
-        </a>
+            <a href="Ki/ki_menu.html" class="magic-card-visual ki" data-bg="bg-ki">
+                <div class="magic-bg-img" style="background-image: url('../../assets/images/ki.png');"></div>
+                <div class="magic-content">
+                    <h2>Ki</h2>
+                    <p>A forja da alma. A energia vital interior manifestada em proezas físicas e instintos bestiais.</p>
+                </div>
+            </a>
 
-        <a href="Fe/fe_menu.html" class="magic-card fe">
-            <div class="card-icon">☀️</div>
-            <h2>Fé</h2>
-            <p>Dádivas divinas e orações concedidas por entidades superiores.</p>
-        </a>
+            <a href="Fe/fe_menu.html" class="magic-card-visual fe" data-bg="bg-fe">
+                <div class="magic-bg-img" style="background-image: url('../../assets/images/fe.png');"></div>
+                <div class="magic-content">
+                    <h2>Fé</h2>
+                    <p>A luz dos deuses. Milagres, curas e proteções concedidas por devoção a entidades superiores.</p>
+                </div>
+            </a>
 
-        <a href="Caos/caos_menu.html" class="magic-card caos">
-            <div class="card-icon">👁️</div>
-            <h2>Caos</h2>
-            <p>Rituais proibidos e a instabilidade da magia de Nox.</p>
-        </a>
+            <a href="Caos/caos_menu.html" class="magic-card-visual caos" data-bg="bg-caos">
+                <div class="magic-bg-img" style="background-image: url('../../assets/images/caos.png');"></div>
+                <div class="magic-content">
+                    <h2>Caos</h2>
+                    <p>O abismo de Nox. Rituais proibidos, sacrifícios e a instabilidade do poder que corrompe.</p>
+                </div>
+            </a>
 
+        </div>
     </main>
 
     <footer>
         <button onclick="location.href='../../index.html'" class="btn-back">Voltar ao Átrio</button>
     </footer>
+
+    <script src="../../../js/menu.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const cards = document.querySelectorAll('.magic-card-visual');
+            const body = document.body;
+            // Guarda a classe original do background para restaurar depois
+            const originalBgClass = 'grimoire-bg'; 
+
+            cards.forEach(card => {
+                // Quando o mouse entra no card
+                card.addEventListener('mouseenter', () => {
+                    // Pega o nome da classe de background do atributo data-bg (ex: bg-caos)
+                    const bgClass = card.getAttribute('data-bg');
+                    if (bgClass) {
+                        // Adiciona a nova classe ao body para ativar a transição do CSS
+                        body.classList.add(bgClass);
+                    }
+                });
+
+                // Quando o mouse sai do card
+                card.addEventListener('mouseleave', () => {
+                    // Remove todas as classes de background específicas, voltando ao padrão
+                    body.classList.remove('bg-mana', 'bg-ki', 'bg-fe', 'bg-caos');
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
