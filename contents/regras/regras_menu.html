@@ -2,110 +2,139 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Códice de Regras - Luxsandoria</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/style.css">
-    <title>Regras - Luxsandoria</title>
     <style>
-        .rules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .rules-section { background: rgba(20, 20, 20, 0.9); border: 1px solid #333; padding: 20px; border-radius: 5px; }
-        .rules-section h2 { color: #c5a059; border-bottom: 1px solid #c5a059; padding-bottom: 10px; margin-top: 0; }
-        .sub-group { margin-top: 15px; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 4px; }
-        .sub-group h3 { font-size: 0.9rem; text-transform: uppercase; color: #888; margin-bottom: 8px; }
-        .link-list { display: flex; flex-wrap: wrap; gap: 8px; }
-        .rule-link { 
-            background: #2a2a2a; color: #ccc; padding: 6px 12px; 
-            text-decoration: none; border-radius: 3px; font-size: 0.85rem; border: 1px solid transparent;
-            transition: 0.2s;
+        :root {
+            --c1: #113F67; --c2: #34699A; --c3: #58A0C8; --c4: #FDF5AA;
         }
-        .rule-link:hover { border-color: #c5a059; color: #fff; background: #333; }
-        .arsenal-link { color: #ff9900; }
+        body { background-color: var(--c1) !important; color: var(--c4); }
+        
+        .rules-header { padding: 60px 0; background: linear-gradient(180deg, var(--c1) 0%, var(--c2) 100%); border-bottom: 2px solid var(--c4); margin-bottom: 50px; }
+        .section-title { font-family: 'Cinzel', serif; color: var(--c4); border-bottom: 2px solid var(--c3); padding-bottom: 10px; margin-bottom: 30px; margin-top: 50px; }
+
+        /* Estilo dos Links de Regras */
+        .rule-item {
+            display: flex;
+            align-items: center;
+            background: rgba(52, 105, 154, 0.2);
+            border: 1px solid var(--c2);
+            border-radius: 8px;
+            padding: 15px 20px;
+            color: var(--c4);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            height: 100%;
+            font-weight: 500;
+        }
+        .rule-item:hover {
+            background: var(--c4);
+            color: var(--c1);
+            transform: translateY(-5px);
+            border-color: var(--c4);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        .rule-icon { margin-right: 15px; font-size: 1.2rem; color: var(--c3); transition: 0.3s; }
+        .rule-item:hover .rule-icon { color: var(--c1); }
+
+        /* Sub-seções (Arsenal/Domínios) */
+        .sub-box {
+            background: rgba(17, 63, 103, 0.5);
+            border: 1px dashed var(--c3);
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+        .sub-title { font-size: 0.9rem; color: var(--c3); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; text-align: center; }
     </style>
 </head>
-<body class="grimoire-bg">
-    <div id="navbar-placeholder"></div> 
-    <script src="../../../js/menu.js"></script>
+<body>
+    <div id="navbar-placeholder"></div>
 
-    <header class="menu-header">
-        <h1>Códice de Leis</h1>
-        <p>A estrutura que rege a realidade e o conflito.</p>
+    <header class="rules-header text-center">
+        <div class="container">
+            <h1 class="display-3" style="font-family: 'Cinzel', serif;">Códice de Regras</h1>
+            <p class="lead" style="color: var(--c3);">A estrutura que rege a realidade, o conflito e a evolução.</p>
+        </div>
     </header>
 
-    <main class="menu-container">
-        <div class="rules-grid">
+    <div class="container pb-5">
+        
+        <section>
+            <h2 class="section-title">⚖️ Fundamentos Gerais</h2>
+            <div class="row g-3">
+                <div class="col-md-4"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Critico.md" class="rule-item"><span class="rule-icon">✦</span> Sucesso Crítico</a></div>
+                <div class="col-md-4"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/EficienciaRank.md" class="rule-item"><span class="rule-icon">✦</span> Eficiência de Rank</a></div>
+                <div class="col-md-4"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/EstagioDistancia.md" class="rule-item"><span class="rule-icon">✦</span> Estágios de Distância</a></div>
+                <div class="col-md-4"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Magiculas.md" class="rule-item"><span class="rule-icon">✦</span> Sistema de Magículas</a></div>
+                <div class="col-md-4"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Pericias.md" class="rule-item"><span class="rule-icon">✦</span> Lista de Perícias</a></div>
+                <div class="col-md-4"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/PontosAfeicaoPA.md" class="rule-item"><span class="rule-icon">✦</span> Pontos de Afeição (PA)</a></div>
+            </div>
 
-            <section class="rules-section">
-                <h2>Regras Gerais</h2>
-                <div class="link-list">
-                    <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Critico.md" class="rule-link">Crítico</a>
-                    <a href="../../viewer.html?file=contents/regras/Regras_Gerais/EficienciaRank.md" class="rule-link">Eficiência de Rank</a>
-                    <a href="../../viewer.html?file=contents/regras/Regras_Gerais/EstagioDistancia.md" class="rule-link">Distância</a>
-                    <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Magiculas.md" class="rule-link">Magiculas</a>
-                    <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Pericias.md" class="rule-link">Perícias</a>
-                    <a href="../../viewer.html?file=contents/regras/Regras_Gerais/PontosAfeicaoPA.md" class="rule-link">Pontos de Afeição (PA)</a>
+            <div class="sub-box">
+                <h3 class="sub-title">Atributos de Personagem</h3>
+                <div class="row g-2 mb-4">
+                    <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Forca.md" class="rule-item py-2">Força</a></div>
+                    <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Destreza.md" class="rule-item py-2">Destreza</a></div>
+                    <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Constituicao.md" class="rule-item py-2">Constituição</a></div>
+                    <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Inteligencia.md" class="rule-item py-2">Inteligência</a></div>
+                    <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Sabedoria.md" class="rule-item py-2">Sabedoria</a></div>
+                    <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Carisma.md" class="rule-item py-2">Carisma</a></div>
+                    <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Mana.md" class="rule-item py-2">Mana</a></div>
+                    <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/TestesDefesa.md" class="rule-item py-2">Testes de Defesa</a></div>
                 </div>
 
-                <div class="sub-group">
-                    <h3>Atributos</h3>
-                    <div class="link-list">
-                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Forca.md" class="rule-link">Força</a>
-                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Destreza.md" class="rule-link">Destreza</a>
-                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Constituicao.md" class="rule-link">Const.</a>
-                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Inteligencia.md" class="rule-link">Int.</a>
-                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Sabedoria.md" class="rule-link">Sab.</a>
-                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Carisma.md" class="rule-link">Carisma</a>
-                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Mana.md" class="rule-link">Mana</a>
-                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/TestesDefesa.md" class="rule-link">Defesas</a>
-                    </div>
+                <h3 class="sub-title">Domínios de Maestria</h3>
+                <div class="row g-2">
+                    <div class="col-12"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Introducao_Dominio.md" class="rule-item py-2 mb-2" style="border-style: double;">Introdução aos Domínios</a></div>
+                    <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Forca.md" class="rule-item py-2">Domínio: Força</a></div>
+                    <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Destreza.md" class="rule-item py-2">Domínio: Destreza</a></div>
+                    <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Constituicao.md" class="rule-item py-2">Domínio: Const.</a></div>
+                    <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Inteligencia.md" class="rule-item py-2">Domínio: Intel.</a></div>
+                    <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Sabedoria.md" class="rule-item py-2">Domínio: Sabedoria</a></div>
+                    <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Carisma.md" class="rule-item py-2">Domínio: Carisma</a></div>
+                    <div class="col-6 col-md-3"><a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Mana.md" class="rule-item py-2">Domínio: Mana</a></div>
                 </div>
+            </div>
+        </section>
 
-                <div class="sub-group">
-                    <h3>Domínios</h3>
-                    <div class="link-list">
-                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Introducao_Dominio.md" class="rule-link" style="color:#c5a059">Introdução</a>
-                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Forca.md" class="rule-link">D. Força</a>
-                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Destreza.md" class="rule-link">D. Destreza</a>
-                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Constituicao.md" class="rule-link">D. Const.</a>
-                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Inteligencia.md" class="rule-link">D. Int.</a>
-                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Sabedoria.md" class="rule-link">D. Sab.</a>
-                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Carisma.md" class="rule-link">D. Carisma</a>
-                        <a href="../../viewer.html?file=contents/regras/Regras_Gerais/Atributos/Dominios/Dominio_Mana.md" class="rule-link">D. Mana</a>
-                    </div>
+        <section>
+            <h2 class="section-title">⚔️ Regras de Combate</h2>
+            <div class="row g-3">
+                <div class="col-md-4"><a href="../../viewer.html?file=contents/regras/Regras_Combate/Tipos_Condicoes.md" class="rule-item"><span class="rule-icon">◈</span> Tipos de Condições</a></div>
+                <div class="col-md-4"><a href="../../viewer.html?file=contents/regras/Regras_Combate/Tipos_Dano.md" class="rule-item"><span class="rule-icon">◈</span> Tipos de Dano</a></div>
+                <div class="col-md-4"><a href="../../viewer.html?file=contents/regras/Regras_Combate/Tipos_Resistencia.md" class="rule-item"><span class="rule-icon">◈</span> Tipos de Resistência</a></div>
+            </div>
+
+            <div class="sub-box mt-4">
+                <h3 class="sub-title">Arsenal de Equipamentos</h3>
+                <div class="row g-2">
+                    <div class="col-md-4"><a href="../../viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Armaduras.md" class="rule-item py-2">Armaduras & Escudos</a></div>
+                    <div class="col-md-4"><a href="../../viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Leve.md" class="rule-item py-2">Armas Leves</a></div>
+                    <div class="col-md-4"><a href="../../viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Marcial.md" class="rule-item py-2">Armas Marciais</a></div>
+                    <div class="col-md-4"><a href="../../viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Exotico.md" class="rule-item py-2">Armas Exóticas</a></div>
+                    <div class="col-md-4"><a href="../../viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Magico.md" class="rule-item py-2">Itens Mágicos</a></div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="rules-section">
-                <h2>Combate & Arsenal</h2>
-                <div class="link-list">
-                    <a href="../../viewer.html?file=contents/regras/Regras_Combate/Tipos_Condicoes.md" class="rule-link">Condições</a>
-                    <a href="../../viewer.html?file=contents/regras/Regras_Combate/Tipos_Dano.md" class="rule-link">Tipos de Dano</a>
-                    <a href="../../viewer.html?file=contents/regras/Regras_Combate/Tipos_Resistencia.md" class="rule-link">Resistências</a>
-                </div>
+        <section>
+            <h2 class="section-title">✨ Regras Opcionais & Sistemas</h2>
+            <div class="row g-3">
+                <div class="col-md-6"><a href="../../viewer.html?file=contents/regras/Regras_Opcionais/cristais.md" class="rule-item border-warning"><span class="rule-icon">💠</span> Códice de Cristais</a></div>
+                <div class="col-md-6"><a href="../../viewer.html?file=contents/regras/Regras_Opcionais/versus.md" class="rule-item border-warning"><span class="rule-icon">⚔️</span> Modo Versus (PvP)</a></div>
+            </div>
+        </section>
 
-                <div class="sub-group">
-                    <h3>Arsenal (Equipamentos)</h3>
-                    <div class="link-list">
-                        <a href="../../viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Leve.md" class="rule-link arsenal-link">Armas Leves</a>
-                        <a href="../../viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Marcial.md" class="rule-link arsenal-link">Armas Marciais</a>
-                        <a href="../../viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Exotico.md" class="rule-link arsenal-link">Armas Exóticas</a>
-                        <a href="../../viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Magico.md" class="rule-link arsenal-link">Itens Mágicos</a>
-                        <a href="../../viewer.html?file=contents/regras/Regras_Combate/Asenal/Arsenal_Armaduras.md" class="rule-link arsenal-link">Armaduras</a>
-                    </div>
-                </div>
-            </section>
+    </div>
 
-            <section class="rules-section">
-                <h2>Sistemas Adicionais</h2>
-                <p style="color: #666; font-style: italic; font-size: 0.9rem;">Regras opcionais e variantes de jogo.</p>
-                <div class="link-list">
-                    <span class="rule-link" style="opacity: 0.5;">Em breve...</span>
-                </div>
-            </section>
-
-        </div>
-    </main>
-
-    <footer>
-        <button onclick="location.href='../../index.html'" class="btn-back">Retornar ao Início</button>
+    <footer class="text-center py-5 border-top border-secondary">
+        <p style="color: var(--c3);">Luxsandoria — Sistema de autoria de <strong style="color: var(--c4);">Lokeser</strong></p>
     </footer>
 
+    <script src="../../js/menu.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

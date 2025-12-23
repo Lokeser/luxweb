@@ -1,24 +1,168 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Luxsandoria RPG</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <script src="js/menu.js"></script>
-  <div id="navbar-placeholder"></div>
-  <nav class="main-menu">
-    <a href="contents/classes/classes_menu.html">Classes</a>
-    <a href="contents/habilidades/habilidades_menu.html">Habilidades</a>
-    <a href="contents/magias/magias_menu.html">Magias</a>
-    <a href="contents/racas/racas_menu.html">Raças</a>
-    <a href="contents/ranks/ranks_menu.html">Ranks</a>
-    <a href="contents/regras/regras_menu.html">Regras</a>
-  </nav>
-<footer class="main-footer">
-    <p>Luxsandoria — Sistema,   Site e Jogos de autoria de <strong>Lokeser</strong>.</p>
-</footer>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxsandoria - O Grimório do Destino</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root {
+            --c1: #113F67; --c2: #34699A; --c3: #58A0C8; --c4: #FDF5AA;
+        }
+        
+        /* Ajuste solicitado: Parágrafos Brancos apenas nesta página */
+        p { 
+            color: #ffffff !important; 
+        }
 
+        /* Hero Section */
+        .hero-section {
+            height: 90vh;
+            background: linear-gradient(rgba(17, 63, 103, 0.7), rgba(17, 63, 103, 0.9)), url('assets/images/home_bg.jpg') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-bottom: 3px solid var(--c4);
+        }
+
+        .hero-title {
+            font-family: 'Cinzel', serif;
+            font-size: 5rem;
+            color: var(--c4);
+            text-shadow: 0 0 20px rgba(253, 245, 170, 0.6);
+            letter-spacing: 10px;
+        }
+
+        .lore-card {
+            background: rgba(52, 105, 154, 0.2);
+            border: 1px solid var(--c3);
+            border-radius: 15px;
+            padding: 30px;
+            transition: 0.4s;
+            height: 100%;
+        }
+
+        .lore-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--c4);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .section-header {
+            font-family: 'Cinzel', serif;
+            color: var(--c4);
+            text-align: center;
+            margin: 80px 0 40px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .merlin-quote {
+            font-style: italic;
+            border-left: 4px solid var(--c4);
+            padding-left: 20px;
+            margin: 40px 0;
+            color: var(--c3);
+        }
+    </style>
+</head>
+<body class="grimoire-bg" style="background-color: var(--c1);">
+
+    <div id="navbar-placeholder"></div>
+
+    <header class="hero-section">
+        <div class="container text-center">
+            <h1 class="hero-title">LUXSANDORIA</h1>
+            <p class="lead mb-5" style="letter-spacing: 2px;">A Mana é a energia vital que permeia tudo, usada em magia, rituais e artefatos.</p>
+            <a href="#lore" class="btn btn-outline-warning btn-lg px-5">Explorar Grimório</a>
+        </div>
+    </header>
+
+    <div class="container py-5" id="lore">
+        
+        <h2 class="section-header">Os Quatro Continentes</h2>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="lore-card">
+                    <p>O Mundo de Luxsandoria é composto por quatro continentes principais que abrigam a vida e o mistério:</p>
+                    <ul class="text-light">
+                        <li><strong>Strongland:</strong> Reinos humanos em conflito, as Terras Mortas e nove reinos primordiais.</li>
+                        <li><strong>Demópoles:</strong> Lar da diversidade de demi-humanos como Manpans, Rekels, Atlantides e Loomians.</li>
+                        <li><strong>Fareverus:</strong> A floresta élfica mística onde a natureza e a magia se fundem.</li>
+                        <li><strong>Tundra:</strong> O deserto gelado e berço da humanidade.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="lore-card">
+                    <h3 class="h4" style="color: var(--c4);">Hierarquia de Ranks</h3>
+                    <p>O poder em Luxsandoria é medido em uma escala que vai do Rank 10 (Informatus), o nível comum, ao Rank 3 (Ark), lendário e atualmente inexistente.</p>
+                    <p>A evolução até o Rank 7 ocorre através de combate e experiência; porém, acima disso, é necessária a Ascensão de Núcleo, fundindo-se com criaturas mágicas sob risco de loucura ou morte.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-header">Linhagens e Artes Arcanas</h2>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="lore-card">
+                    <h3 class="h4" style="color: var(--c4);">Diversidade de Raças</h3>
+                    <p>O mundo abriga Humanos (Strongland), Elfos (Fareverus), Meio-Elfos, Meio-Vampiros, Meio-Orcs e Humanos Escarlates da Tundra. Além das linhagens demi-humanas de Demópoles.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="lore-card">
+                    <h3 class="h4" style="color: var(--c4);">As Artes da Mana</h3>
+                    <p>As Magias dividem-se em Naturais (Terra, Água, Fogo, Vento, Raio) e Antinaturais (Anomalia de Mana, Ki).</p>
+                    <p>Cada elemento possui leis próprias: o Fogo é volátil, enquanto o Vento é uma arte exclusiva dos Elfos.</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="mt-5 pt-5">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <h2 class="section-header text-start">Academia Omnus</h2>
+                    <p>Situada entre Scarlet, Ford e Saphstar, a Academia Omnus é um castelo majestoso sobre o rio, conectado por pontes encantadas. Jovens estudam aqui por 5 anos, abrangendo do fundamental ao ensino médio.</p>
+                    <p>A instituição oferece clubes diversos como Teatro, Alquimia e Duelos, possuindo também a filial Nova Omnus, focada estritamente em magia e combate.</p>
+                    <div class="merlin-quote">
+                        "Fundada por Merlin Godspell, a Academia é o coração do aprendizado e dos mistérios de nosso mundo."
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="lore-card" style="background: rgba(253, 245, 170, 0.05);">
+                        <h4 style="color: var(--c4);">Mitos e Mistérios</h4>
+                        <ul class="text-light list-unstyled">
+                            <li>✦ <strong>Fenômenos:</strong> Névoa Misteriosa e Auroras de Mana.</li>
+                            <li>✦ <strong>Entidades:</strong> O Coração do Mundo e Senhores das Sombras.</li>
+                            <li>✦ <strong>Relíquias:</strong> Olho de Serena e Lança do Coração.</li>
+                            <li>✦ <strong>Organizações:</strong> Ordem do Véu e Círculo dos Ladrões.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="row mt-5 pt-5 text-center">
+            <h2 class="section-header">Explore o Sistema</h2>
+            <div class="d-flex justify-content-center flex-wrap">
+                <a href="contents/racas/racas_menu.html" class="btn btn-warning m-2 px-4">Raças</a>
+                <a href="contents/classes/classes_menu.html" class="btn btn-warning m-2 px-4">Classes</a>
+                <a href="contents/magias/magias_menu.html" class="btn btn-warning m-2 px-4">Magias</a>
+                <a href="contents/habilidades/habilidades_menu.html" class="btn btn-warning m-2 px-4">Habilidades</a>
+                <a href="contents/regras/regras_menu.html" class="btn btn-warning m-2 px-4">Regras</a>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="text-center py-5 border-top border-secondary mt-5">
+        <p>Luxsandoria — Sistema de autoria de <strong style="color: var(--c4);">Lokeser</strong></p>
+    </footer>
+
+    <script src="js/menu.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
