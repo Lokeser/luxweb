@@ -2,44 +2,246 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caminho da Fé - Luxsandoria</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../css/style.css">
     <style>
-        :root { --p-color: #fcc200; --s-color: #ffffff; }
-        body { background: radial-gradient(circle at top, #3d3100, #000); }
-        .card { border: 1px solid var(--p-color); background: rgba(252, 194, 0, 0.1); color: #fff; }
-        .card:hover { background: var(--p-color); color: #000; box-shadow: 0 0 20px #fcc200; }
-        h1, h2 { color: var(--p-color); font-family: 'Cinzel', serif; }
+        /* Paleta: Dourado (P), Branco (S), Amarelo (T) */
+        body { 
+            background-color: #fffdf0 !important; /* Branco Marfim Sagrado */
+            color: #b8860b; /* Dourado Envelhecido */
+        }
+
+        .fe-header {
+            padding: 70px 0;
+            background: linear-gradient(180deg, #ffffff 0%, #fdf5aa 100%);
+            border-bottom: 4px solid #fdf5aa;
+            text-shadow: 0 0 10px rgba(253, 245, 170, 0.8);
+            color: #8b6d11;
+        }
+
+        /* Card Horizontal (Essência da Fé) */
+        .fe-base-card {
+            display: flex;
+            background: #ffffff;
+            border: 2px solid #fdf5aa;
+            border-radius: 20px;
+            overflow: hidden;
+            text-decoration: none;
+            transition: all 0.5s ease;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(253, 245, 170, 0.2);
+            min-height: 280px;
+        }
+
+        .fe-base-img {
+            width: 40%;
+            background-image: url('../../../assets/images/fe.png');
+            background-size: cover;
+            background-position: center;
+            filter: sepia(0.5) brightness(1.1);
+            transition: 0.6s;
+        }
+
+        .fe-base-content {
+            width: 60%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: #fff;
+        }
+
+        .fe-base-card:hover {
+            border-color: #ffd700;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(253, 245, 170, 0.4);
+        }
+
+        .fe-base-card:hover .fe-base-img { filter: sepia(0) brightness(1.2); }
+
+        /* Divisor Celestial */
+        .fe-divider {
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #fdf5aa, #ffd700, #fdf5aa, transparent);
+            margin: 50px auto;
+            width: 80%;
+            border-radius: 50%;
+        }
+
+        /* Botão de Orações */
+        .prayer-btn {
+            background: #ffffff;
+            border: 2px solid #fdf5aa;
+            color: #8b6d11;
+            padding: 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .prayer-btn:hover {
+            background: #fdf5aa;
+            color: #113F67;
+            transform: scale(1.02);
+        }
+
+        /* Cards Hierárquicos 9:16 */
+        .rank-card {
+            position: relative;
+            display: block;
+            aspect-ratio: 9 / 16;
+            background-color: #fff;
+            border: 1px solid #fdf5aa;
+            border-radius: 15px;
+            overflow: hidden;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .rank-img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+            transition: 0.5s;
+        }
+
+        .rank-overlay {
+            position: absolute;
+            bottom: 0; width: 100%;
+            padding: 25px 10px;
+            background: linear-gradient(to top, rgba(253, 245, 170, 1) 10%, rgba(255,255,255,0.8) 60%, transparent);
+            text-align: center;
+        }
+
+        .rank-title {
+            color: #8b6d11;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .rank-card:hover {
+            transform: scale(1.05);
+            border-color: #ffd700;
+            box-shadow: 0 0 25px rgba(253, 245, 170, 0.6);
+        }
+
+        .rank-card:hover .rank-img { opacity: 1; transform: scale(1.1); }
+
+        .section-label {
+            font-family: 'Cinzel', serif;
+            color: #8b6d11;
+            text-align: center;
+            margin-bottom: 40px;
+            letter-spacing: 3px;
+        }
     </style>
 </head>
-<body class="grimoire-bg">
-    <div id="navbar-placeholder"></div>
+<body>
     
-    <script src="../../../js/menu.js"></script>
-    <header class="menu-header">
-        <h1>Caminho da Fé</h1>
-        <p>Dádivas e Hierarquia Divina</p>
+    <div id="navbar-placeholder"></div>
+
+    <header class="fe-header text-center">
+        <h1 class="display-3" style="font-family: 'Cinzel', serif;">Dogmas da Fé</h1>
+        <p class="lead">As orações e a hierarquia sagrada de Luxsandoria.</p>
     </header>
-    <main class="menu-container">
-        <section class="magic-tier">
-            <h2>A Igreja</h2>
-            <div class="grid-links">
-                <a href="../../../viewer.html?file=contents/magias/Fe/Fe.md" class="card">Doutrina</a>
-                <a href="../../../viewer.html?file=contents/magias/Fe/Oracoes.md" class="card">Orações Sagradas</a>
+
+    <main class="container py-5">
+        
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-10">
+                <a href="../../../viewer.html?file=contents/magias/Fe/Fe.md" class="fe-base-card">
+                    <div class="fe-base-img"></div>
+                    <div class="fe-base-content">
+                        <h3 style="font-family: 'Cinzel', serif; color: #8b6d11;">A Luz Primordial</h3>
+                        <p style="color: #666;">Descubra como a devoção molda a realidade. As orações não são apenas palavras, são extensões do seu espírito elevado.</p>
+                        <span style="color: #b8860b; font-weight: bold; font-size: 0.8rem;">CONTEMPLAR VERDADES DIVINAS →</span>
+                    </div>
+                </a>
+                
+                <a href="../../../viewer.html?file=contents/magias/Fe/Oracoes.md" class="prayer-btn mt-4">
+                    🪽 Livro de Orações e Milagres
+                </a>
             </div>
-        </section>
-        <section class="magic-tier">
-            <h2>Graus de Ascensão (Níveis)</h2>
-            <div class="grid-links">
-                <a href="../../../viewer.html?file=contents/magias/Fe/Niveis_Fe/1_Noviciado.md" class="card">Noviciado</a>
-                <a href="../../../viewer.html?file=contents/magias/Fe/Niveis_Fe/2_Sacerdote.md" class="card">Sacerdote</a>
-                <a href="../../../viewer.html?file=contents/magias/Fe/Niveis_Fe/3_Diacono.md" class="card">Diácono</a>
-                <a href="../../../viewer.html?file=contents/magias/Fe/Niveis_Fe/4_Padre.md" class="card">Padre</a>
-                <a href="../../../viewer.html?file=contents/magias/Fe/Niveis_Fe/5_Bispo.md" class="card">Bispo</a>
-                <a href="../../../viewer.html?file=contents/magias/Fe/Niveis_Fe/6_Arcebispo.md" class="card">Arcebispo</a>
-                <a href="../../../viewer.html?file=contents/magias/Fe/Niveis_Fe/7_Cardeal.md" class="card">Cardeal</a>
-                <a href="../../../viewer.html?file=contents/magias/Fe/Niveis_Fe/8_Papa.md" class="card">Papa</a>
+        </div>
+
+        <div class="fe-divider"></div>
+
+        <h2 class="section-label">A Escadaria do Clero</h2>
+        <div class="row row-cols-2 row-cols-md-4 row-cols-lg-4 g-4">
+            
+            <div class="col">
+                <a href="../../../viewer.html?file=contents/magias/Fe/Niveis_Fe/1_Noviciado.md" class="rank-card">
+                    <img src="../../../assets/images/f_1.png" class="rank-img">
+                    <div class="rank-overlay"><h4 class="rank-title">Noviciado</h4></div>
+                </a>
             </div>
-        </section>
+
+            <div class="col">
+                <a href="../../../viewer.html?file=contents/magias/Fe/Niveis_Fe/2_Sacerdote.md" class="rank-card">
+                    <img src="../../../assets/images/f_2.png" class="rank-img">
+                    <div class="rank-overlay"><h4 class="rank-title">Sacerdote</h4></div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="../../../viewer.html?file=contents/magias/Fe/Niveis_Fe/3_Diacono.md" class="rank-card">
+                    <img src="../../../assets/images/f_3.png" class="rank-img">
+                    <div class="rank-overlay"><h4 class="rank-title">Diácono</h4></div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="../../../viewer.html?file=contents/magias/Fe/Niveis_Fe/4_Padre.md" class="rank-card">
+                    <img src="../../../assets/images/f_4.png" class="rank-img">
+                    <div class="rank-overlay"><h4 class="rank-title">Padre</h4></div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="../../../viewer.html?file=contents/magias/Fe/Niveis_Fe/5_Bispo.md" class="rank-card">
+                    <img src="../../../assets/images/f_5.png" class="rank-img">
+                    <div class="rank-overlay"><h4 class="rank-title">Bispo</h4></div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="../../../viewer.html?file=contents/magias/Fe/Niveis_Fe/6_Arcebispo.md" class="rank-card">
+                    <img src="../../../assets/images/f_6.png" class="rank-img">
+                    <div class="rank-overlay"><h4 class="rank-title">Arcebispo</h4></div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="../../../viewer.html?file=contents/magias/Fe/Niveis_Fe/7_Cardeal.md" class="rank-card">
+                    <img src="../../../assets/images/f_7.png" class="rank-img">
+                    <div class="rank-overlay"><h4 class="rank-title">Cardeal</h4></div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="../../../viewer.html?file=contents/magias/Fe/Niveis_Fe/8_Papa.md" class="rank-card" style="border-width: 3px; border-color: #ffd700;">
+                    <img src="../../../assets/images/f_8.png" class="rank-img">
+                    <div class="rank-overlay" style="background: rgba(255, 215, 0, 0.9);"><h4 class="rank-title">Papa</h4></div>
+                </a>
+            </div>
+
+        </div>
     </main>
+
+    <footer class="text-center py-5">
+        <button onclick="history.back()" class="btn btn-outline-warning px-5 mb-4" style="border-radius: 0; color: #8b6d11;">Retroceder</button>
+        <p style="color: #b8860b;">Luxsandoria — Sistema de autoria de <strong>Lokeser</strong></p>
+    </footer>
+
+    <script src="../../../js/menu.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -2,30 +2,190 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caminho do Ki - Luxsandoria</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../css/style.css">
     <style>
-        :root { --p-color: #440000; --s-color: #ff4d4d; }
-        body { background: radial-gradient(circle at top, #2b0000, #000); }
-        .card { border: 1px solid #ffffff33; background: rgba(139, 0, 0, 0.3); color: #fff; }
-        .card:hover { background: #fff; color: #8b0000; font-weight: bold; }
-        h1, h2 { color: #ff4d4d; text-transform: uppercase; letter-spacing: 4px; }
+        /* Paleta: Branco (P), Vermelho (S), Azul (T) */
+        body { 
+            background-color: #f8f9fa !important; 
+            color: #1a1a1a;
+        }
+
+        .ki-header {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #ffffff 0%, #d32f2f 100%);
+            border-bottom: 5px solid #1976d2;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* Card Horizontal (Ki Fundamental) */
+        .ki-base-card {
+            display: flex;
+            background: #fff;
+            border: 2px solid #d32f2f;
+            border-radius: 15px;
+            overflow: hidden;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            min-height: 250px;
+        }
+
+        .ki-base-img {
+            width: 40%;
+            background-size: cover;
+            background-position: center;
+            transition: 0.6s;
+        }
+
+        .ki-base-content {
+            width: 60%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .ki-base-card:hover {
+            border-color: #1976d2;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(25, 118, 210, 0.2);
+        }
+
+        .ki-base-card:hover .ki-base-img { transform: scale(1.05); }
+
+        /* Divisor de Fluxo */
+        .ki-divider {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #d32f2f, #1976d2, transparent);
+            margin: 40px auto 60px;
+            width: 80%;
+            border-radius: 50%;
+        }
+
+        /* Cards Verticais 9:16 (Artes) */
+        .ki-card-art {
+            position: relative;
+            display: block;
+            aspect-ratio: 9 / 16;
+            background-color: #fff;
+            border: 2px solid #d32f2f;
+            border-radius: 12px;
+            overflow: hidden;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .ki-art-img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            filter: grayscale(30%);
+            transition: 0.5s;
+        }
+
+        .ki-art-overlay {
+            position: absolute;
+            bottom: 0; width: 100%;
+            padding: 25px 15px;
+            background: linear-gradient(to top, #d32f2f 30%, transparent);
+            text-align: center;
+        }
+
+        .ki-art-title {
+            color: #fff;
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+        }
+
+        .ki-card-art:hover {
+            transform: scale(1.05);
+            border-color: #1976d2;
+            box-shadow: 0 10px 25px rgba(25, 118, 210, 0.3);
+        }
+
+        .ki-card-art:hover .ki-art-img { filter: grayscale(0%); transform: scale(1.1); }
+        .ki-card-art:hover .ki-art-overlay { background: linear-gradient(to top, #1976d2 30%, transparent); }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            color: #d32f2f;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
     </style>
 </head>
-<body class="grimoire-bg">
-    <div id="navbar-placeholder"></div>
+<body>
     
-    <script src="../../../js/menu.js"></script>
-    <header class="menu-header">
-        <h1>Energia Vital: Ki</h1>
-        <p>A manifestação da força interior</p>
+    <div id="navbar-placeholder"></div>
+
+    <header class="ki-header text-center">
+        <h1 class="display-3" style="font-family: 'Cinzel', serif;">Núcleo de Ki</h1>
+        <p class="lead">A energia vital que flui através do esforço e da disciplina.</p>
     </header>
-    <main class="menu-container">
-        <div class="grid-links">
-            <a href="../../../viewer.html?file=contents/magias/Ki/Ki.md" class="card">Fundamentos do Ki</a>
-            <a href="../../../viewer.html?file=contents/magias/Ki/Arte_Besta.md" class="card">Arte da Besta</a>
-            <a href="../../../viewer.html?file=contents/magias/Ki/Arte_Celestial.md" class="card">Arte Celestial</a>
-            <a href="../../../viewer.html?file=contents/magias/Ki/Arte_Diabo.md" class="card">Arte do Diabo</a>
+
+    <main class="container py-5">
+        
+        <h2 class="section-title text-center">O Fundamento</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <a href="../../../viewer.html?file=contents/magias/Ki/Ki.md" class="ki-base-card">
+                    <div class="ki-base-img" style="background-image: url('../../../assets/images/k_ki.png');"></div>
+                    <div class="ki-base-content">
+                        <h3 style="font-family: 'Cinzel', serif; color: #d32f2f;">Essência do Ki</h3>
+                        <p style="color: #555;">Compreenda as bases da energia vital. Antes de dominar as bestas ou o céu, é preciso dominar a si mesmo.</p>
+                        <span style="color: #1976d2; font-weight: bold; font-size: 0.8rem; text-transform: uppercase;">Acessar Conhecimento Base →</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="ki-divider"></div>
+
+        <h2 class="section-title text-center">As Artes Marciais</h2>
+        <div class="row g-4 justify-content-center">
+            
+            <div class="col-6 col-md-4">
+                <a href="../../../viewer.html?file=contents/magias/Ki/Arte_Besta.md" class="ki-card-art">
+                    <img src="../../../assets/images/k_besta.png" class="ki-art-img">
+                    <div class="ki-art-overlay">
+                        <h4 class="ki-art-title">Arte Besta</h4>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4">
+                <a href="../../../viewer.html?file=contents/magias/Ki/Arte_Diabo.md" class="ki-card-art">
+                    <img src="../../../assets/images/k_diabo.png" class="ki-art-img">
+                    <div class="ki-art-overlay">
+                        <h4 class="ki-art-title">Arte Diabo</h4>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4">
+                <a href="../../../viewer.html?file=contents/magias/Ki/Arte_Celestial.md" class="ki-card-art">
+                    <img src="../../../assets/images/k_celestial.png" class="ki-art-img">
+                    <div class="ki-art-overlay">
+                        <h4 class="ki-art-title">Celestial</h4>
+                    </div>
+                </a>
+            </div>
+
         </div>
     </main>
+
+    <footer class="text-center py-5">
+        <button onclick="history.back()" class="btn btn-outline-danger px-5 mb-4" style="border-radius: 0;">Retroceder</button>
+        <p style="color: #999;">Luxsandoria — Sistema de autoria de <strong>Lokeser</strong></p>
+    </footer>
+
+    <script src="../../../js/menu.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

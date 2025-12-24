@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <li><a href="${finalPrefix}contents/classes/classes_menu.html">Classes</a></li>
                     <li><a href="${finalPrefix}contents/magias/magias_menu.html">Magias</a></li>
                     <li><a href="${finalPrefix}contents/habilidades/habilidades_menu.html">Habilidades</a></li>
+                    <li><a href="${finalPrefix}contents/galeria/galeria_menu.html">Galeria</a></li>
                 </ul>
             </div>
         </nav>

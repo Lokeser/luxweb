@@ -375,7 +375,7 @@ html, body {
 }
 
 .markdown-body h2, .markdown-body h3 {
-    color: #00263e; /* Cor 3 */
+    color: #ffffff; /* Cor 3 */
     font-family: 'Cinzel', serif;
     margin-top: 40px;
     border-left: 5px solid #FDF5AA;
