@@ -2,43 +2,220 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abismo de Nox - Luxsandoria</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../css/style.css">
     <style>
-        :root { --p-color: #1a001a; --s-color: #bf00ff; }
-        body { background: radial-gradient(circle at top, #1a0026, #000); }
-        .card { border: 1px solid var(--s-color); background: #000; color: #bf00ff; font-family: 'Courier New', monospace; }
-        .card:hover { background: #bf00ff; color: #000; box-shadow: 0 0 25px #bf00ff; }
-        h1, h2 { color: #bf00ff; text-shadow: 2px 2px #000; }
+        /* Paleta: Roxo (P), Preto (S), Roxo Claro (T) */
+        body { 
+            background-color: #000000 !important; 
+            color: #bf00ff; /* Roxo Claro Terciário */
+        }
+
+        .caos-header {
+            padding: 70px 0;
+            background: linear-gradient(180deg, #1a002a 0%, #000000 100%);
+            border-bottom: 3px solid #6a0dad; /* Roxo Primário */
+            text-shadow: 0 0 20px #bf00ff;
+        }
+
+        /* Card Horizontal (Essência do Caos) */
+        .caos-base-card {
+            display: flex;
+            background: #0a0014;
+            border: 2px solid #6a0dad;
+            border-radius: 15px;
+            overflow: hidden;
+            text-decoration: none;
+            transition: all 0.5s ease;
+            margin-bottom: 50px;
+            box-shadow: 0 0 20px rgba(106, 13, 173, 0.2);
+            min-height: 280px;
+        }
+
+        .caos-base-img {
+            width: 45%;
+            background-image: url('../../../assets/images/caos.png');
+            background-size: cover;
+            background-position: center;
+            filter: hue-rotate(280deg) brightness(0.8);
+            transition: 0.6s;
+        }
+
+        .caos-base-content {
+            width: 55%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(90deg, #0a0014, #1a002a);
+        }
+
+        .caos-base-card:hover {
+            border-color: #bf00ff;
+            transform: scale(1.01);
+            box-shadow: 0 0 40px rgba(191, 0, 255, 0.3);
+        }
+
+        .caos-base-card:hover .caos-base-img { filter: hue-rotate(280deg) brightness(1.2); }
+
+        /* Divisor de Nox */
+        .caos-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #6a0dad, #bf00ff, #6a0dad, transparent);
+            margin: 50px auto;
+            width: 90%;
+            box-shadow: 0 0 15px #6a0dad;
+        }
+
+        /* Cards Verticais 9:16 */
+        .nox-card {
+            position: relative;
+            display: block;
+            aspect-ratio: 9 / 16;
+            background-color: #05000a;
+            border: 1px solid #6a0dad;
+            border-radius: 12px;
+            overflow: hidden;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nox-img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+            transition: 0.5s;
+        }
+
+        .nox-overlay {
+            position: absolute;
+            bottom: 0; width: 100%;
+            padding: 30px 15px;
+            background: linear-gradient(to top, #000 20%, rgba(26, 0, 42, 0.8) 60%, transparent);
+            text-align: center;
+        }
+
+        .nox-title {
+            color: #bf00ff;
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nox-card:hover {
+            transform: translateY(-10px);
+            border-color: #bf00ff;
+            box-shadow: 0 0 30px rgba(191, 0, 255, 0.4);
+        }
+
+        .nox-card:hover .nox-img { opacity: 1; transform: scale(1.1); }
+
+        .section-label {
+            font-family: 'Cinzel', serif;
+            color: #bf00ff;
+            text-align: center;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
     </style>
 </head>
-<body class="grimoire-bg">
-    <div id="navbar-placeholder"></div>
+<body>
     
-    <script src="../../../js/menu.js"></script>
-    <header class="menu-header">
-        <h1>Magia do Caos (Nox)</h1>
-        <p>A instabilidade que consome a realidade</p>
+    <div id="navbar-placeholder"></div>
+
+    <header class="caos-header text-center">
+        <h1 class="display-2" style="font-family: 'Cinzel', serif; color: #bf00ff;">Caos de Nox</h1>
+        <p class="lead" style="color: #6a0dad;">Onde a entropia se torna arma e o abismo responde ao chamado.</p>
     </header>
-    <main class="menu-container">
-        <section class="magic-tier">
-            <h2>Registros Caóticos</h2>
-            <div class="grid-links">
-                <a href="../../../viewer.html?file=contents/magias/Caos/Caos.md" class="card">O Caos</a>
-                <a href="../../../viewer.html?file=contents/magias/Caos/Rituais.md" class="card">Rituais Proibidos</a>
-                <a href="../../../viewer.html?file=contents/magias/Caos/TabelaCaotica.md" class="card">Tabela de Efeitos</a>
+
+    <main class="container py-5">
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <a href="../../../viewer.html?file=contents/magias/Caos/Caos.md" class="caos-base-card">
+                    <div class="caos-base-img"></div>
+                    <div class="caos-base-content">
+                        <h3 style="font-family: 'Cinzel', serif; color: #bf00ff;">As Leis de Nox</h3>
+                        <p style="color: #a29bfe;">Entenda a natureza instável do Caos. Aqui, o custo é sempre alto, mas o poder é absoluto.</p>
+                        <span style="color: #6a0dad; font-weight: bold; font-size: 0.9rem;">REVELAR VERDADES PROIBIDAS →</span>
+                    </div>
+                </a>
             </div>
-        </section>
-        <section class="magic-tier">
-            <h2>Estágios de Nox</h2>
-            <div class="grid-links">
-                <a href="../../../viewer.html?file=contents/magias/Caos/Niveis_Nox/0_Introducao.md" class="card">Nível 0: Introdução</a>
-                <a href="../../../viewer.html?file=contents/magias/Caos/Niveis_Nox/1_Nox_Novus.md" class="card">Nível 1: Novus</a>
-                <a href="../../../viewer.html?file=contents/magias/Caos/Niveis_Nox/2_Nox_Pergit.md" class="card">Nível 2: Pergit</a>
-                <a href="../../../viewer.html?file=contents/magias/Caos/Niveis_Nox/3_Nox_Amantis_Amicita.md" class="card">Nível 3: Amicita</a>
-                <a href="../../../viewer.html?file=contents/magias/Caos/Niveis_Nox/4_Nox_Magister.md" class="card">Nível 4: Magister</a>
-                <a href="../../../viewer.html?file=contents/magias/Caos/Niveis_Nox/5_Nox_Physicus.md" class="card">Nível 5: Physicus</a>
+        </div>
+
+        <div class="row g-4 mb-5 justify-content-center">
+            <div class="col-md-5">
+                <a href="../../../viewer.html?file=contents/magias/Caos/Rituais.md" class="rule-item" style="background: #1a002a; border: 1px solid #6a0dad; padding: 20px; border-radius: 10px; color: #bf00ff; text-decoration: none; display: block; text-align: center;">
+                    <strong>📖 Grimório de Rituais</strong>
+                </a>
             </div>
-        </section>
+            <div class="col-md-5">
+                <a href="../../../viewer.html?file=contents/magias/Caos/TabelaCaotica.md" class="rule-item" style="background: #1a002a; border: 1px solid #6a0dad; padding: 20px; border-radius: 10px; color: #bf00ff; text-decoration: none; display: block; text-align: center;">
+                    <strong>🎲 Tabela de Instabilidade</strong>
+                </a>
+            </div>
+        </div>
+
+        <div class="caos-divider"></div>
+
+        <h2 class="section-label">A Ascensão de Nox</h2>
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-3">
+            
+            <div class="col">
+                <a href="../../../viewer.html?file=contents/magias/Caos/Niveis_Nox/0_Introducao.md" class="nox-card">
+                    <img src="../../../assets/images/nox_0.png" class="nox-img">
+                    <div class="nox-overlay"><h4 class="nox-title">Introdução</h4></div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="../../../viewer.html?file=contents/magias/Caos/Niveis_Nox/1_Nox_Novus.md" class="nox-card">
+                    <img src="../../../assets/images/nox_1.png" class="nox-img">
+                    <div class="nox-overlay"><h4 class="nox-title">Novus</h4></div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="../../../viewer.html?file=contents/magias/Caos/Niveis_Nox/2_Nox_Pergit.md" class="nox-card">
+                    <img src="../../../assets/images/nox_2.png" class="nox-img">
+                    <div class="nox-overlay"><h4 class="nox-title">Pergit</h4></div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="../../../viewer.html?file=contents/magias/Caos/Niveis_Nox/3_Nox_Amantis_Amicita.md" class="nox-card">
+                    <img src="../../../assets/images/nox_3.png" class="nox-img">
+                    <div class="nox-overlay"><h4 class="nox-title">Amantis</h4></div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="../../../viewer.html?file=contents/magias/Caos/Niveis_Nox/4_Nox_Magister.md" class="nox-card">
+                    <img src="../../../assets/images/nox_4.png" class="nox-img">
+                    <div class="nox-overlay"><h4 class="nox-title">Magister</h4></div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="../../../viewer.html?file=contents/magias/Caos/Niveis_Nox/5_Nox_Physicus.md" class="nox-card">
+                    <img src="../../../assets/images/nox_5.png" class="nox-img">
+                    <div class="nox-overlay"><h4 class="nox-title">Physicus</h4></div>
+                </a>
+            </div>
+
+        </div>
     </main>
+
+    <footer class="text-center py-5">
+        <button onclick="history.back()" class="btn btn-outline-light px-5 mb-4" style="border-color: #6a0dad; color: #bf00ff; border-radius: 0;">Sair do Abismo</button>
+        <p style="color: #30004a;">Luxsandoria — Sistema de autoria de <strong>Lokeser</strong></p>
+    </footer>
+
+    <script src="../../../js/menu.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
